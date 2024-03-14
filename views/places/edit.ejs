@@ -1,0 +1,60 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="flex flex-col my-4">
+    <p class="text-xl font-bold text-center">Edit Place</p>
+    <div class="">
+        <form action="/places/<%=place._id%>?_method=PUT" method="POST" novalidate 
+            class="validated-form flex flex-col w-4/5 lg:w-3/5 mx-auto" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label font-semibold" for="title">Title</label>
+                <input class="form-control" type="text" id="title" name="place[title]"  value="<%=place.title %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label font-semibold" for="location">Location</label>
+                <input class="form-control" type="text" id="location" name="place[location]" value="<%=place.location %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label font-semibold" for="image">Add Images</label>
+                <input class="form-control" type="file" id="image" name="image" multiple required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label font-semibold" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="place[description]" required>value="<%=place.description %>"</textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            
+            <div class="mb-3 grid grid-cols-4">
+                <% place.images.forEach(function (img, i) { %>
+                    <div class="">
+                        <img src="<%= img.thumbnail %>" class="img-thumbnail" alt="">
+                    <div class="form-check-inline">
+                        <input type="checkbox" id="image-<%=i %>" name="deleteImages[]" value="<%=img.filename %>">
+                    </div>
+                    <label for="image-<%=i %>">Delete</label>
+                    </div>
+               <%  })  %>
+            </div>
+
+            <div class="mb-3">
+                <button class="bg-slate-600 w-fit text-white font-semibold py-2 px-4
+                hover:bg-slate-700 transition ease-in-out my-2 rounded-md ">Update Place</button>
+            </div>
+
+            <div class="font-semibold text-green-700 border-b-2 border-green-700 w-fit">
+                <a href="/places/<%= place._id%>">Go back</a>
+            </div>
+        </form>
+       
+    </div>
+</div>

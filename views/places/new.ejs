@@ -1,0 +1,44 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="flex flex-col my-4">
+    <p class="text-xl font-bold text-center">Add new Place</p>
+    <div class="col-md-6 offset-md-3">
+        <form action="/places" method="post"  class="validated-form" novalidate enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label font-semibold" for="title">Title</label>
+                <input class="form-control" type="text" id="title" name="place[title]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label font-semibold" for="location">Location</label>
+                <input class="form-control" type="text" id="location" name="place[location]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label font-semibold">Add Images</label>
+                <input class="form-control" type="file" id="image" name="image" multiple>
+              </div>
+            <div class="mb-3">
+                <label class="form-label font-semibold" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="place[description]" required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <button class="bg-slate-600 w-fit text-white font-semibold py-2 px-4
+                hover:bg-slate-700 transition ease-in-out my-2 rounded-md ">Add Place</button>
+            </div>
+
+            <div class="font-semibold text-green-700 border-b-2 border-green-700 w-fit">
+                <a href="/places">Go back</a>
+            </div>
+        </form>
+        
+    </div>
+</div>
+

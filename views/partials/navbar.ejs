@@ -1,0 +1,30 @@
+
+
+<div class="bg-gradient-to-t from-slate-900 to-slate-700 flex justify-between 
+        items-center text-white h-20 px-8">
+
+      
+    <div><a class="text-2xl font-bold " href="/">Nature Love</a></div>
+
+   
+
+    
+      <div class="">
+        <% if (!currentUser) { %>
+        <div class="flex space-x-4 cursor-pointer ">
+          <a class="hover:scale-x-105 text-white font-semibold" href="/places">View All</a>
+          <a class="hover:scale-x-105 text-white font-semibold" href="/login">Login</a>
+        <a class="hover:scale-x-105 text-white font-semibold" href="/register">Register</a>
+        </div>
+        <% } else { %>
+          <div class="flex space-x-4 cursor-pointer "> 
+            <a class="hover:scale-x-105 text-white font-semibold" href="/places">View All</a>
+            <a class="hover:scale-x-105 text-white font-semibold" href="/places/new">Add Yours</a>
+            <a class="hover:scale-x-105 text-white font-semibold" href="/logout">Logout</a>
+          </div>
+        <% } %>
+      </div>
+
+   
+ 
+  </div>
