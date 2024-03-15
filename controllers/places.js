@@ -35,7 +35,7 @@ module.exports.createPlace = async (req, res, next) => {
    }
 
  module.exports.showPlace = async(req,res) => {
-   try {
+   
     const place = await Place.findById(req.params.id)
     .populate({
         path: 'reviews',
@@ -44,15 +44,15 @@ module.exports.createPlace = async (req, res, next) => {
         }
     })
     .populate('author');
-    res.render('places/show', {place});
-    
-   } catch (error) {
-    if (error) {
+    // console.log(place)
+    if (!place) {
       req.flash('error', 'Cannot find the requested place!');
       return res.redirect('/places');
-  }
+ }
+    res.render('places/show', {place});
+    
+   
   
-   }
     
 }
 

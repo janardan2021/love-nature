@@ -4,7 +4,6 @@ if (process.env.NODE_ENV !== 'production') {
 // require('dotenv').config();
 // console.log(process.env.SECRET);
 
-// mongodb+srv://our-first-user:<password>@cluster0.wi4r4h6.mongodb.net/?retryWrites=true&w=majority
 
 const express = require('express');
 const path = require('path');
@@ -30,7 +29,7 @@ const MongoDBStore = require('connect-mongo');
 
 
 
-const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
+const dbUrl = process.env.DB_URL || process.env.DB_URL_DEV;
 mongoose.connect(dbUrl)
    .then(() => {
     console.log('MONGO CONNECTION OPEN')
